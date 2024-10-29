@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用axios发起get请求</title>
+</head>
+<body>
+<h1>axios发起get请求</h1>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    axios({
+        method : "get",
+        url : "http://localhost:8080/axiosservlet?username='zhangsan'"
+    }).then(function (response) {
+        console.log(response)
+        alert(response.data)
+    }).then(function (err) {
+        console.log(err)
+    })
+</script>
+</body>
+</html>

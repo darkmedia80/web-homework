@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检查用户是否可用</title>
+</head>
+<body>
+<div>
+    <label for="username">
+        <input type="text" name="username" value="admin" id="username">
+    </label>
+    <span id="tip">显示注册结果</span>
+    <script>
+        document.getElementById("username").onblur = function () {
+            //获取输入用户名
+            const name1 = this.value;
+            console.log(name1)
+            //取到span标签展示的结果
+            let tip = document.getElementById("tip");
+            //样式设置行为展示
+            tip.style.display = "inline";
+            let xHttp
+            if (window.XMLHttpRequest) {
+                xHttp = new XMLHttpRequest()
+            } else {
+                xHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xHttp.open("GET","http://localhost:8080/checkservlet?username="+name1);
+            xHttp.send()
+            xHttp.onreadystatechange =function (){
+                if (this.status===200)
+                {
+                    if(this.responseText==="true"){
+                        tip.innerHTML="用户可用"
+                        tip.style.color="green"
+                    }else{
+                        tip.innerHTML="用户存在"
+                        tip.style.color="red"
+                    }
+                }
+            }
+
+        }
+    </script>
+</div>
+</body>
+</html>

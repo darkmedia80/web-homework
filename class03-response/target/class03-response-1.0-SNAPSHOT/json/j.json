@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "学习Java",
+      "author": "张三",
+      "published": "2023-01-01"
+    },
+    {
+      "id": 2,
+      "title": "深入理解计算机系统",
+      "author": "李四",
+      "published": "2022-05-15"
+    }
+  ]
+}
